@@ -54,16 +54,15 @@ Here are some brief notes on each implementation:
 Running the benchmarks found in this repo locally is easy:
 
 1. download the repo
+2. run the commands
+
 ```sh
-go get github.com/sean-public/skiplist-survey
-go install github.com/sean-public/skiplist-survey
-skiplist-survey > output.csv
+git clone https://github.com/Ruth-Seven/skiplists_benchmark.git && cd ./skiplists_benchmark 
+pip install pathlib pandas numpy seaborn
+./run.sh 10 10 1000 result 
 ```
 
-2. add test funtions into allFunctions
-3. run `go run benchmark.go > tee ./visualize/a.csv`
-4. run `python3 visualize_csv.py` after installation of python package, using `pip3 install numpy pandas seaborn`.
-5. check updated result pngs in this file.
+1. check updated result pngs in this file.
 
 
 The results are in CSV format for easy charting and analysis.
@@ -87,7 +86,7 @@ The vertical axis is **nanoseconds per operation**, the horizontal is the number
 Just like for randomInserts, `mauriceGit (mt)` is the fastest, closely followed by `sean`.
 
 
-@@include[my-file.md](./visualize/png.md)
+[Visualization.md](./visualize/png.md)
 
 ### Todo
 

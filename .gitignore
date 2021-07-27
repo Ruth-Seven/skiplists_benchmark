@@ -1,0 +1,8 @@
+.*
+!.gitignore
+
+*.out
+go.*
+Benchs
+exec
+result*

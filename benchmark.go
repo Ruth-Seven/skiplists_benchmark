@@ -1,64 +1,54 @@
 package main
 
 import (
-	"fmt"
-	"reflect"
-	"runtime"
-	"sync"
-	"time"
-)
+	"flag"
+	"log"
 
-const (
-	// The range of values for n passed to the individual benchmarks
-	start, end, step int = 100000, 3000000, 100000
+	"github.com/skiplist-survey/skiplist"
+	"github.com/skiplist-survey/tools"
 )
 
 var (
-	wg             sync.WaitGroup
-	testByteString = []byte(fmt.Sprint("test value"))
-	test10Kilobyte = make([]byte, 10240)
+	// The range of values for n passed to the individual benchmarks
+	start  = flag.Int("start", 100, "the lowest times of test operator")
+	end    = flag.Int("end", 1000, "the larget times of test operator")
+	factor = flag.Float64("factor", 1.5, "the  mutilple factor of start")
+	output = flag.String("folder", "result", "the lowest times of test operator")
 )
 
-// timeTrack will print out the number of nanoseconds since the start time divided by n
-// Useful for printing out how long each iteration took in a benchmark
-func timeTrack(start time.Time, n int) {
-	loopNS := time.Since(start).Nanoseconds() / int64(n)
-	fmt.Print(loopNS)
-}
-
-// iterations is used to print out the CSV header with iteration counts
-func iterations(n int) {
-	fmt.Print(n)
-}
-
-// funcName returns just the function name of a string, given any function at all
-func funcName(f func(int)) string {
-	return runtime.FuncForPC(reflect.ValueOf(f).Pointer()).Name()[5:]
-}
+const (
+	csvfile = "result.csv"
+)
 
 // runIterations executes the tests in a loop with the given parameters
-func runIterations(name string, start, end, step int, f func(int)) {
-	fmt.Print(name, ",")
-	for i := start; i <= end; i += step {
+func runIterations(name string, f func(int)) {
+	tools.Tee(name + ",")
+	for i := *start; i <= *end; i = int(float64(i) * (*factor)) {
 		f(i)
-		fmt.Print(",")
+		tools.Tee(",")
 	}
-	fmt.Println()
+	tools.Tee("\n")
 }
 
 func main() {
+	flag.Parse()
 	// first, print the CSV header with iteration counts
-	runIterations("iterations", start, end, step, iterations)
-
-	allFunctions := append(seanFunctions, zhenjlFunctions...)
-	allFunctions = append(allFunctions, mtchavezFunctions...)
-	allFunctions = append(allFunctions, huanduFunctions...)
-	allFunctions = append(allFunctions, colFunctions...)
-	allFunctions = append(allFunctions, ryszardFunctions...)
-	allFunctions = append(allFunctions, mtFunctions...)
-	allFunctions = append(allFunctions, ruthFunctions...)
+	runIterations("iterations", tools.Iterations)
+	allFunctions := append(skiplist.MapFunctions, skiplist.SeanFunctions...)
+	allFunctions = append(allFunctions, skiplist.ZhenjlFunctions...)
+	allFunctions = append(allFunctions, skiplist.ColFunctions...)
+	allFunctions = append(allFunctions, skiplist.MtchavezFunctions...)
+	allFunctions = append(allFunctions, skiplist.HuanduFunctions...)
+	// allFunctions = append(allFunctions, skiplist.RyszardFunctions...)
+	allFunctions = append(allFunctions, skiplist.MtFunctions...)
+	allFunctions = append(allFunctions, skiplist.RuthFunctions...)
 
 	for _, f := range allFunctions {
-		runIterations(funcName(f), start, end, step, f)
+		runIterations(tools.FuncName(f), f)
+	}
+
+	var folder = "./" + *output
+	if err := tools.CloseTee(folder, csvfile); err != nil {
+		log.Fatal(err)
 	}
 }
