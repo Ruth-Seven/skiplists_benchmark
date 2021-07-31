@@ -4,8 +4,8 @@ import (
 	"math/rand"
 	"time"
 
+	"github.com/Ruth-Seven/skiplists_benchmark/tools"
 	mtcSkiplist "github.com/mtchavez/skiplist"
-	"github.com/skiplists_benchmark/tools"
 )
 
 func mtchavezInserts(n int) {

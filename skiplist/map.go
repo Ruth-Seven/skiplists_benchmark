@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/skiplists_benchmark/tools"
+	"github.com/Ruth-Seven/skiplists_benchmark/tools"
 )
 
 type MockList map[int64][]byte

@@ -4,8 +4,8 @@ import (
 	"math/rand"
 	"time"
 
+	"github.com/Ruth-Seven/skiplists_benchmark/tools"
 	seaSkiplist "github.com/sean-public/fast-skiplist"
-	"github.com/skiplists_benchmark/tools"
 )
 
 func seanInserts(n int) {

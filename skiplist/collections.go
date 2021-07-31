@@ -4,8 +4,8 @@ import (
 	"math/rand"
 	"time"
 
+	"github.com/Ruth-Seven/skiplists_benchmark/tools"
 	colSkiplist "github.com/golang-collections/go-datastructures/slice/skip"
-	"github.com/skiplists_benchmark/tools"
 )
 
 type mockEntry uint64

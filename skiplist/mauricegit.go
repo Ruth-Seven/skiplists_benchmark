@@ -6,7 +6,7 @@ import (
 	"time"
 
 	mtSkiplist "github.com/MauriceGit/skiplist"
-	"github.com/skiplists_benchmark/tools"
+	"github.com/Ruth-Seven/skiplists_benchmark/tools"
 )
 
 type element uint64

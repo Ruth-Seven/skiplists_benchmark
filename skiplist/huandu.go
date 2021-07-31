@@ -4,8 +4,8 @@ import (
 	"math/rand"
 	"time"
 
+	"github.com/Ruth-Seven/skiplists_benchmark/tools"
 	huaSkiplist "github.com/huandu/skiplist"
-	"github.com/skiplists_benchmark/tools"
 )
 
 func huanduInserts(n int) {

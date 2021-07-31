@@ -4,8 +4,8 @@ import (
 	"math/rand"
 	"time"
 
+	"github.com/Ruth-Seven/skiplists_benchmark/tools"
 	rysSkiplist "github.com/ryszard/goskiplist/skiplist"
-	"github.com/skiplists_benchmark/tools"
 )
 
 func ryszardInserts(n int) {

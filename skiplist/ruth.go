@@ -5,7 +5,7 @@ import (
 	"time"
 
 	ruthSkiplist "github.com/Ruth-Seven/skiplist"
-	"github.com/skiplists_benchmark/tools"
+	"github.com/Ruth-Seven/skiplists_benchmark/tools"
 )
 
 type Item struct {
