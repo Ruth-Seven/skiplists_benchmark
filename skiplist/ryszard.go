@@ -5,7 +5,7 @@ import (
 	"time"
 
 	rysSkiplist "github.com/ryszard/goskiplist/skiplist"
-	"github.com/skiplist-survey/tools"
+	"github.com/skiplists_benchmark/tools"
 )
 
 func ryszardInserts(n int) {

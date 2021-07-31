@@ -4,8 +4,8 @@ import (
 	"flag"
 	"log"
 
-	"github.com/skiplist-survey/skiplist"
-	"github.com/skiplist-survey/tools"
+	"github.com/skiplists_benchmark/skiplist"
+	"github.com/skiplists_benchmark/tools"
 )
 
 var (

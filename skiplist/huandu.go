@@ -5,7 +5,7 @@ import (
 	"time"
 
 	huaSkiplist "github.com/huandu/skiplist"
-	"github.com/skiplist-survey/tools"
+	"github.com/skiplists_benchmark/tools"
 )
 
 func huanduInserts(n int) {

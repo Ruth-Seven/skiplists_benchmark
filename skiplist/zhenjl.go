@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/skiplist-survey/tools"
+	"github.com/skiplists_benchmark/tools"
 	zheSkiplist "github.com/zhenjl/skiplist"
 )
 

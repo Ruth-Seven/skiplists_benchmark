@@ -5,7 +5,7 @@ import (
 	"time"
 
 	seaSkiplist "github.com/sean-public/fast-skiplist"
-	"github.com/skiplist-survey/tools"
+	"github.com/skiplists_benchmark/tools"
 )
 
 func seanInserts(n int) {

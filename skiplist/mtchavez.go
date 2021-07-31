@@ -5,7 +5,7 @@ import (
 	"time"
 
 	mtcSkiplist "github.com/mtchavez/skiplist"
-	"github.com/skiplist-survey/tools"
+	"github.com/skiplists_benchmark/tools"
 )
 
 func mtchavezInserts(n int) {

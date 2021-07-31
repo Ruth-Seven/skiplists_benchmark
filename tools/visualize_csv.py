@@ -14,7 +14,7 @@ reg = {
     "^(?!.*Worst)(?!.*Random).*Inserts$": "Insert.png",
     "^.*WorstInserts$": "WorstInserts.png",
     
-    ".*AvgSearch": "WorstSearch.png",
+    ".*AvgSearch": "AvgSearch.png",
     ".*SearchEnd": "SearchEnd.png",
    
     "^(?!.*Worst)(?!.*Random).*Delete$": "Delete.png",
@@ -49,7 +49,6 @@ def read_df():
 	df.drop(index=0, inplace=True)
 	
 	df = df.set_index(df['iterations']).drop(columns="iterations")
-	print(df)
 	return df
 
 

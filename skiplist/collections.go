@@ -5,7 +5,7 @@ import (
 	"time"
 
 	colSkiplist "github.com/golang-collections/go-datastructures/slice/skip"
-	"github.com/skiplist-survey/tools"
+	"github.com/skiplists_benchmark/tools"
 )
 
 type mockEntry uint64
